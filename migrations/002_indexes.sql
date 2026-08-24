@@ -1,0 +1,22 @@
+CREATE INDEX IF NOT EXISTS idx_clientes_empresa ON clientes(empresa_id);
+CREATE INDEX IF NOT EXISTS idx_clientes_legacy ON clientes(legacy_id);
+CREATE INDEX IF NOT EXISTS idx_proveedores_empresa ON proveedores(empresa_id);
+CREATE INDEX IF NOT EXISTS idx_materiales_empresa ON materiales(empresa_id);
+CREATE INDEX IF NOT EXISTS idx_materiales_sku ON materiales(empresa_id, sku);
+CREATE INDEX IF NOT EXISTS idx_precios_material ON precios(material_id);
+CREATE INDEX IF NOT EXISTS idx_precios_proveedor ON precios(proveedor_id);
+CREATE INDEX IF NOT EXISTS idx_cotizaciones_empresa ON cotizaciones(empresa_id);
+CREATE INDEX IF NOT EXISTS idx_cotizaciones_cliente ON cotizaciones(cliente_id);
+CREATE INDEX IF NOT EXISTS idx_cotitems_cot ON cotizacion_items(cotizacion_id);
+CREATE INDEX IF NOT EXISTS idx_auditoria_entidad ON auditoria(entidad, record_id);
+-- Índices adicionales (mandato ítem 12): legacy_id, updated_at, deleted_at, version
+CREATE INDEX IF NOT EXISTS idx_proveedores_legacy ON proveedores(legacy_id);
+CREATE INDEX IF NOT EXISTS idx_materiales_legacy ON materiales(legacy_id);
+CREATE INDEX IF NOT EXISTS idx_clientes_deleted ON clientes(deleted_at);
+CREATE INDEX IF NOT EXISTS idx_proveedores_deleted ON proveedores(deleted_at);
+CREATE INDEX IF NOT EXISTS idx_materiales_deleted ON materiales(deleted_at);
+CREATE INDEX IF NOT EXISTS idx_precios_deleted ON precios(deleted_at);
+CREATE INDEX IF NOT EXISTS idx_cotizaciones_deleted ON cotizaciones(deleted_at);
+CREATE INDEX IF NOT EXISTS idx_clientes_updated ON clientes(updated_at);
+CREATE INDEX IF NOT EXISTS idx_cotizaciones_updated ON cotizaciones(updated_at);
+CREATE INDEX IF NOT EXISTS idx_cotizaciones_version ON cotizaciones(version);
